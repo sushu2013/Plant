@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>观花植物</title>
+		<style type="text/css">
+	       #div1{
+	       	width:1250px; height:200px;/*border: 1px solid black;*/margin-left: 80px;
+	       	background: url(观花植物图片/3.jpg) no-repeat right;background-color:lightskyblue ;
+	       }
+	      
+	       #div2{
+	       	width: 1050px;height: 800px;margin-left:80px;float: left;
+	       background: url(观花植物图片/33.jpg) ;/*color: #48D1CC;*/text-align: center;
+	      
+	       }
+	       #div3{
+	       	width: 200px;height: 800px;background-color: #48D1CC;float: left;background:url(观花植物图片/7.jpg) ;
+	       	border: 1px solid #48D1CC;
+	       	border-top-left-radius: 10px;
+	       	border-top-right-radius: 10px;
+	       	border-bottom-left-radius: 10px;
+	       	border-bottom-right-radius:10px ;
+	       	
+	       	
+	       }
+	       #div5{
+	       	margin-bottom: 10px;
+	       	margin-left: 300px;
+	       }
+	       tr{
+	       	width: 200px;height: 100px;
+	       }
+	       td{
+	    
+	       	width:250px;
+	       	height:200px;
+	     
+	      }
+	      img{margin: 20px;}
+	      #div02{/*width: 400px;height: 300px;background:black;*/display: none;
+	      width: 200px;height: 500px;background-color: #48D1CC;float: left;}
+	     #div01{
+	     	
+	     }
+		</style>
+		
+   <script type="text/javascript" language="javascript">
+	function Page(iAbsolute,sTableId,sTBodyId)
+{
+this.absolute = iAbsolute; 
+this.tableId = sTableId;
+this.tBodyId = sTBodyId;
+this.rowCount = 0;
+this.pageCount = 0;
+this.pageIndex = 0;
+this.__oTable__ = null;
+this.__oTBody__ = null;
+this.__dataRows__ = 0;
+this.__oldTBody__ = null;
+this.__init__(); 
+};
+/*
+初始化
+*/
+Page.prototype.__init__ = function(){
+this.__oTable__ = document.getElementById(this.tableId);
+this.__oTBody__ = this.__oTable__.tBodies[this.tBodyId];
+this.__dataRows__ = this.__oTBody__.rows;
+this.rowCount = this.__dataRows__.length;
+try{
+this.absolute = (this.absolute <= 0) || (this.absolute>this.rowCount) ? this.rowCount : this.absolute; 
+this.pageCount = parseInt(this.rowCount%this.absolute == 0 
+? this.rowCount/this.absolute : this.rowCount/this.absolute+1);
+}catch(exception){}
+
+this.__updateTableRows__();
+};
+
+Page.prototype.nextPage = function(){
+if(this.pageIndex + 1 < this.pageCount){
+this.pageIndex += 1;
+this.__updateTableRows__();
+}
+};
+
+Page.prototype.prePage = function(){
+if(this.pageIndex >= 1){
+this.pageIndex -= 1;
+this.__updateTableRows__();
+}
+};
+
+Page.prototype.firstPage = function(){
+if(this.pageIndex != 0){
+this.pageIndex = 0;
+this.__updateTableRows__();
+} 
+};
+
+Page.prototype.lastPage = function(){
+if(this.pageIndex+1 != this.pageCount){
+this.pageIndex = this.pageCount - 1;
+this.__updateTableRows__();
+}
+};
+
+Page.prototype.aimPage = function(iPageIndex){
+if(iPageIndex > this.pageCount-1){
+this.pageIndex = this.pageCount - 1;
+}else if(iPageIndex < 0){
+this.pageIndex = 0;
+}else{
+this.pageIndex = iPageIndex;
+}
+this.__updateTableRows__();
+};
+
+Page.prototype.__updateTableRows__ = function(){
+var iCurrentRowCount = this.absolute * this.pageIndex;
+var iMoreRow = this.absolute+iCurrentRowCount > this.rowCount ? this.absolute+iCurrentRowCount - this.rowCount : 0;
+var tempRows = this.__cloneRows__();
+//alert(tempRows === this.dataRows);
+//alert(this.dataRows.length);
+var removedTBody = this.__oTable__.removeChild(this.__oTBody__);
+var newTBody = document.createElement("TBODY");
+newTBody.setAttribute("id", this.tBodyId);
+
+for(var i=iCurrentRowCount; i < this.absolute+iCurrentRowCount-iMoreRow; i++){
+newTBody.appendChild(tempRows[i]);
+}
+this.__oTable__.appendChild(newTBody);
+
+this.__dataRows__ = tempRows;
+this.__oTBody__ = newTBody;
+
+};
+
+Page.prototype.__cloneRows__ = function(){
+var tempRows = [];
+for(var i=0; i<this.__dataRows__.length; i++){
+
+tempRows[i] = this.__dataRows__[i].cloneNode(1);
+}
+return tempRows;
+};
+window.onload = function(){
+page = new Page(3,'table1','group_one'); };
+
+function showDiv(objId){
+ var objDiv=document.getElementById(objId); 
+ var objDiv1=document.getElementById("Q1");  
+ var objDiv2=document.getElementById("Q2");
+ var objDiv3=document.getElementById("Q3");
+ var objDiv4=document.getElementById("Q4");
+ var objDiv5=document.getElementById("Q5");
+ var objDiv6=document.getElementById("Q6");
+  var objDiv7=document.getElementById("Q7");
+  var objDiv8=document.getElementById("Q8");
+  var objDiv9=document.getElementById("Q9");
+  var objDiv10=document.getElementById("Q10");
+  var objDiv11=document.getElementById("Q11");
+  var objDiv12=document.getElementById("Q12");
+  var objDiv13=document.getElementById("Q13");
+  var objDiv14=document.getElementById("Q14");
+   var objDiv15=document.getElementById("Q15");
+   var objDiv16=document.getElementById("Q16");
+ objDiv1.style.display="none";
+ objDiv2.style.display="none";
+ objDiv3.style.display="none";
+ objDiv4.style.display="none";
+ objDiv5.style.display="none";
+ objDiv6.style.display="none";
+ objDiv7.style.display="none";
+ objDiv8.style.display="none";
+ objDiv9.style.display="none";
+  objDiv10.style.display="none";
+   objDiv11.style.display="none";
+   objDiv12.style.display="none";
+   objDiv13.style.display="none";
+   objDiv14.style.display="none";
+     objDiv15.style.display="none";
+      objDiv16.style.display="none";
+  objDiv.style.display="";}
+	</script>
+	</head>
+	<body>
+		<div id="div1"><!--<img src="观花植物图片/3.jpg" height="200px"width="1250px"/>-->
+		   <div id="div01"><font size="8px"color="darkseagreen">观花植物</font></div>
+		</div>
+		<div id="div2">
+		<table id="table1" border="0px" cellpadding="0px"cellspacing="0px">
+			<tbody id="group_one">
+			
+					<tr>
+					<td><img src="观花植物图片/蔷薇（红）.jpg"/></br>
+						蔷薇
+					<a href="javascript:showDiv('Q1');"><详情></a><!--<input id="btn1" type="button" value="详情" />	-->
+						
+					</td>
+					<td><img src="观花植物图片/丁香（红）.jpg"/></br>
+						丁香
+					<a href="javascript:showDiv('Q2');"><详情></a>
+					</td>
+					<td><img src="观花植物图片/百合（白）.jpg"/></br>百合
+				    <a href="javascript:showDiv('Q3');"><详情></a>
+					<!--<div id="btn3" style="cursor:pointer";>百合<详情></div>-->
+					</td>
+					<td><img src="观花植物图片/康乃馨（粉红）.jpg"/><br>康乃馨<a href="javascript:showDiv('Q4');"><详情></a></td>
+				</tr>
+		            <tr>
+					<td><img src="观花植物图片/曼陀罗（粉）.jpg"/></br>曼陀罗<a href="javascript:showDiv('Q5');"><详情></a></td>
+					<td><img src="观花植物图片/夹竹桃（桃）.jpg"/></br >夹竹桃<a href="javascript:showDiv('Q6');"><详情></a></br></td>
+					<td><img src="观花植物图片/文竹.jpg"/></br>文竹<a href="javascript:showDiv('Q7');"><详情></a></td>
+					<td><img src="观花植物图片/杏花.jpg"/></br>杏花<a href="javascript:showDiv('Q8');"><详情></a></td>
+				</tr>
+			
+					<tr>
+					<td><img src="观花植物图片/洛丽玛丝玫瑰.jpg"/></br>洛丽玛丝玫瑰<a href="javascript:showDiv('Q9');"><详情></a></td>
+					<td><img src="观花植物图片/火鹤.jpg"/></br>火鹤<a href="javascript:showDiv('Q10');"><详情></a></td>
+					<td><img src="观花植物图片/白梅.jpg"/></br>白梅<a href="javascript:showDiv('Q11');"><详情></a></td>
+					<td><img src="观花植物图片/荷花.jpg"/><br>荷花<a href="javascript:showDiv('Q12');"><详情></a></td>
+				</tr>
+				
+					<tr>
+					<td><img src="观花植物图片/黄水仙.jpg"/></br>黄水仙<a href="javascript:showDiv('Q13');"><详情></a></td>
+					<td><img src="观花植物图片/山茶花（红）.jpg"/></br>山茶花<a href="javascript:showDiv('Q14');"><详情></a></td>
+					<td><img src="观花植物图片/曼陀罗华.jpg"/></br>曼陀罗华<a href="javascript:showDiv('Q15');"><详情></a></td>
+					<td><img src="观花植物图片/石竹花.jpg"/><br>石竹花<a href="javascript:showDiv('Q16');"><详情></a></td>
+				</tr>
+				</tbody>
+				
+			</table>
+		
+			
+			 <div id="div5">
+		  
+		  	<span id="s"></span>
+ <table>
+	<tr>
+		<td>
+	   <!--<a href="#" onclick="page.prePage();"><font size="5px">上一页</font></a>-->
+	     <button onclick="page.prePage();"><font size="5px">上一页</font></button>
+	  </td>
+	  <!--<td> 
+	  	<a href="first.html">1</a>
+	  </td>
+	  <td> 
+	  	<a href="first.html">2</a>
+	  </td>
+	  <td> 
+	  	<a href="first.html">3</a>
+	  </td>-->
+	  <td>
+		   <!--<a href="#" onclick="page.nextPage();"><font size="5px">下一页</font></a>-->
+		   <button onclick="page.nextPage();"><font size="5px">下一页</font></button>
+		</td>
+		<td>
+			<span id="pageindex"></span>
+	 </td>
+  </tr>
+ </table>
+		  </div>
+	
+			</div>
+		<div id="div3">
+	
+		<font size="6" color="#FF0000" style="display: ;">详情介绍</br>
+			
+		</font></br>
+			<div id="Q1" style="display:none">
+				大红蔷薇（学名：Rosa saturata Baker）是灌木，高1-2米；小枝圆柱形，常无刺或有稀疏小皮刺。</br>
+				小叶通常 7，叶片卵形或卵状披针形，花单生，稀2朵，苞片宽大，卵状披针形，萼片卵状披针形，</br>
+				花瓣红色，倒卵形；花柱离生，果卵球形，朱红色。花期6月，</br>
+				果期7-10月。多生山坡，灌丛中或水沟旁等处，海拔2200-2400米。产中国湖北、四川、浙江。
+			</div>
+			<div id="Q2"style="display:none">
+				
+紫丁香（学名：Syringa oblata Lindl.）是落叶灌木或小乔木。又称丁香、华北紫丁香、百结、情客、龙梢子。</br>
+紫丁香原产中国华北地区，在中国已有1000多年的栽培历史，是中国的名贵花卉。高1.5-4米，树皮灰褐色，小枝黄褐色，</br>
+ 初被短柔毛。后渐脱落。嫩叶簇生，后对生，卵形，倒卵形或披针形，圆锥花序，花淡紫色、紫红色或蓝色，花冠筒长6-8mm。花期5-6月。
+生长习性喜阳，喜土壤湿润而排水良好，适庭院栽培，春季盛开时硕大而艳丽的花序布满全株，芳香四溢，观赏效果甚佳。</br>
+是庭园裁种的著名花木。
+</div>
+<div id="Q3" style="display:none">
+	百合，学名（Lilium brownii var. viridulum Baker）又名强蜀、番韭、山丹、倒仙、重迈、中庭、摩罗、重箱、中逢花、百合蒜、大师傅蒜
+	、蒜脑薯、夜合花等，是百合科百合属（学名：Lilium）多年生草本球根植物，原产于中国，主要分布在亚洲东部、欧洲、北美洲等北半球温带
+	地区，全球已发现有至少120个品种，其中55种产于中国。近年更有不少经过人工杂交而产生的新品种，
+	如亚洲百合、香水百合、火百合等。鳞茎含丰富淀粉，可食，亦作药用。
+</div>
+<div id="Q4" style="display: none;">康乃馨，原名：香石竹，英文名：Dianthus caryophyllus.又名：狮头石竹、麝香石竹、大花石竹，
+	拉丁文名：Dianthus caryophyllus L. 石竹科、石竹属多年生草本，高40-70厘米，全株无毛，粉绿色。茎丛生，直立，基部木质化，
+	上部稀疏分枝。叶片线状披针形，顶端长渐尖，基部稍成短鞘，中脉明显，上面下凹，下面稍凸起。花常单生枝端有香气，粉红、紫红或白色；
+	花梗短于花萼；宽卵形，顶端短凸尖，花萼圆筒形，萼齿披针形，边缘膜质；瓣片倒卵形，顶缘具不整齐齿；
+	雄蕊长达喉部；花柱伸出花外。蒴果卵球形，稍短于宿存萼。花期5-8月，果期8-9月。
+</div>
+<div id="Q5" style="display: none;">曼陀罗（学名：Datura stramonium Linn.）又叫曼荼罗、满达、曼扎、曼达、醉心花、狗核桃、洋金花、
+	枫茄花、万桃花、闹羊花、大喇叭花、山茄子。草本或半灌木状，高0.5~1.5米，全体近于平滑或在幼嫩部分被短柔毛。茎粗壮，圆柱状，
+	淡绿色或带紫色，下部木质化。叶广卵形。花单生于枝叉间或叶腋，直立，有短梗；花萼筒状。蒴果直立生，卵状表面生有坚硬针刺或有时无刺
+	而近平滑，成熟后淡黄色，规则4瓣裂。种子卵圆形，稍扁黑色。花期6~10月，果期7~11月。[1]  常生于荒地、旱地、宅旁、向阳山坡、林缘、
+	草地。喜温暖、向阳及排水良好的砂质壤土。[1]  具有药用或观赏而栽培。
+</div>
+<div id="Q6"style="display: none;">夹竹桃（学名：Nerium indicum Mill.）夹竹桃族夹竹桃属常绿直立大灌木，高可达5米，枝条灰绿色，嫩枝条具稜，被微毛，老时毛脱落。叶3-4枚轮生，叶面深绿，
+	叶背浅绿色，中脉在叶面陷入，叶柄扁平，聚伞花序顶生，花冠深红色或粉红色，花冠为单瓣呈5裂时，其花冠为漏斗状，种子长圆形，花期几乎全年，夏秋为最盛；果期一般在冬春季，栽培很少结果。
+中国各省区有栽培，尤以中国南方为多，常在公园、风景区、道路旁或河旁、湖旁周围栽培；长江以北栽培者须在温室越冬。野生于伊朗、印度、尼泊尔；现广植于世界热带地区。
+花大、艳丽、花期长，常作观赏；茎皮纤维为优良混纺原料；种子含油量约为58.5%，可榨油供制润滑油。叶、树皮、根、花、种子均含有多种配醣体，毒性极强，人、畜误食能致死。叶、茎皮可提制强心剂，但有毒，用时需慎重。</div>
+<div id="Q7"style="display: none;">
+	
+文竹，又称云片松、刺天冬、云竹，拉丁文名：Asparagus setaceus，高可达几米。文竹根部稍肉质，茎柔软丛生，细长。茎的分枝极多，近平滑。叶状枝，刚毛状，略具三棱；鳞片状叶基部稍具刺状距或距不明显。花白色，有短梗，花期9~10月。浆果熟时呈现紫黑色，有1~3颗种子。[1]  果期冬季至翌年春季。
+原产于南非，分布于中国中部、西北、长江流域及南方各地。其性喜温暖湿润和半阴通风的环境，冬季不耐严寒，不耐干旱，夏季忌阳光直射。[1] 
+文竹是具有极高的观赏植物，可放置客厅、书房，净化空气的同时也增添了书香气息。以根入药，可治急性气管炎，具有润肺止咳的功能。
+
+</div>
+<div id="Q8"style="display: none;">杏花（学名：Prunus armeniaca），一种花，又称杏子，是杏属李亚科植物，其果肉、果仁均可食用。杏花单生，先叶开放，花瓣白色或稍带红晕，是中国著名的观赏树木。杏可配植于庭前、墙隅、道路旁、水边，也可群植、片植于山坡、水畔，是春季主要的观赏树种。杏的学名指出：西方人对杏的认识，乃源于亚美尼亚，事实上，杏广布于东亚及中亚。其可采用播种或嫁接繁殖等种植方法，一般入药的杏，就是杏的果仁，有生津、解毒、清热之效用。初夏成熟。杏树原产中国，分布很广。树龄长，可活一百年以上，既能采果又能赏花，在果木生产和城市美化上都处重要地位。每年3-4月份，各地会举办杏花节，为游人踏青、郊游及摄影提供好去处。杏花是古老的花木，公元前数百年问世的《管子》中就有记载，因此，至少在我国已有二三千年的栽培历史。
+	它既能采果又能赏花，在果木生产和城市美化上都处重要地位</div>
+<div id="Q9"style="display: none;">玫瑰（学名：Rosa rugosa Thunb.）：原产地中国。属蔷薇目，蔷薇科落叶灌木，枝杆多针刺，奇数羽状复叶，小叶5-9片，椭圆形，有边刺。花瓣倒卵形，重瓣至半重瓣，花有紫红色、白色，果期8-9月，扁球形。枝条较为柔弱软垂且多密刺，每年花期只有一次，因此较少用于育种，近来其主要被重视的特性为抗病性与耐寒性。
+玫瑰作为经济作物时，其花朵主要用于食品及提炼香精玫瑰油，玫瑰油应用于化妆品、食品、精细化工等工业。
+在欧洲诸语言中，蔷薇、玫瑰、月季都是使用同一个词，如英语是rose，德语是Die Rose。玫瑰是英国的国花。通俗意义中的“玫瑰”已成为多种蔷薇属植物的通称。且事实上杂交玫瑰也是由蔷薇属下各物种杂交选育所产生。</div>
+<div id="Q10"style="display: none;">火鹤花（学名：Anthurium andraeanum），又名红掌、花烛、安祖花。属天南星科花烛属。有佛焰花序，叶形苞片，常见的苞片颜色有红、粉红、白等，有其花落时也可观叶。可用播种、分株等法繁殖。 粉红色火鹤花亦称为粉掌。粉掌较红掌难以培养。一般要求粉掌生存温度不低于12度，
+		红掌温度不低于10度。每周要求浇两次水，同时避免强烈的阳光直射。</div>
+<div id="Q11"style="display: none;">白梅，干燥花蕾，呈圆球形，直径4～8毫米，基部常带有小梗。苞片3～4层，褐色鳞片状。苞片内有萼片5枚，淡黄褐色，微带绿色，卵圆形，覆瓦状排列，基部与花托愈合。花瓣5枚或多数，白色或黄白色，紧紧相抱。花瓣内包含许多黄色丝状的雄蕊。中心有一枚雌蕊，子房呈卵形而有细长的花柱。质轻。
+			气香，味淡而涩。以花匀净、完整、含苞未放、萼绿花白、气味清香者为佳。</div>
+<div id="Q12"style="display: none;">荷花（Lotus flower）：属睡莲目莲科，是莲属二种植物的通称。又名莲花、水芙蓉等。是莲属多年生水生草本花卉。地下茎长而肥厚，有长节，叶盾圆形。花期6至9月，单生于花梗顶端，花瓣多数，嵌生在花托穴内，有红、粉红、白、紫等色，或有彩纹、镶边。坚果椭圆形，种子卵形。
+荷花种类很多，分观赏和食用两大类。原产亚洲热带和温带地区，中国早在周朝就有栽培记载。荷花全身皆宝，藕和莲子能食用，莲子、根茎、藕节、荷叶、花及种子的胚芽等都可入药。其出污泥而不染之品格恒为世人称颂。“接天莲叶无穷碧，映日荷花别样红”就是对荷花之美的真实写照。荷花“中通外直，不蔓不枝，出淤泥而不染，濯清涟而不妖”的高尚品格，历来为古往今来诗人墨客歌咏绘画的题材之一。
+1985年5月荷花被评为中国十大名花之一。山东济南、山东济宁、江西九江、湖北孝感、湖北洪湖、河南许昌、广东肇庆、澳门等城市，均将荷花定为市花。</div>
+<div id="Q13"style="display: none;">
+水仙（Narcissus tazettaL. var. chinensis Roem. ）：又名中国水仙，是多花水仙的一个变种。是石蒜科多年生草本植物。水仙的叶由鳞茎顶端绿白色筒状鞘中抽出花茎（俗称箭）再由叶片中抽出。一般每个鳞茎可抽花茎1-2枝，多者可达8-11枝，伞状花序。花瓣多为6片，花瓣末处呈鹅黄色。花蕊外面有一个如碗一般的保护罩。鳞茎卵状至广卵状球形，外被棕褐色皮膜。叶狭长带状，蒴果室背开裂。花期春季。
+水仙性喜温暖、湿润、排水良好。在中国已有一千多年栽培历史，为传统观赏花卉，是中国十大名花之十。
+水仙鳞茎多液汁，有毒，含有石蒜碱、多花水仙碱等多种生物碱；外科用作镇痛剂；鳞茎捣烂敷治痈肿。牛羊误食鳞茎，立即出现痉挛、瞳孔放大、暴泻等。
+</div>
+<div id="Q14"style="display: none;">
+
+茶花（学名：Camellia sp.）又名山茶花，是山茶科、山茶属多种植物和园艺品种的通称。花瓣为碗形，分单瓣或重瓣，单瓣茶花多为原始花种，重瓣茶花的花瓣可多达60片。茶花有不同程度的红、紫、白、黄各色花种，甚至还有彩色斑纹茶花，而花枝最高可以达到4米。性喜温暖、湿润的环境。花期较长，从10月份到翌年5月份都有开放，盛花期通常在1-3月份。
+因其植株形姿优美，叶为浓绿绿而光泽，花形艳丽缤纷，而受到世界园艺界的珍视。茶花的品种极多，是中国传统的观赏花卉，“十大名花”中排名第八，亦是世界名贵花木之一。原产于中国东部，在长江流域、珠江流域、重庆、云南和四川各地，朝鲜、日本、中国台湾和印度等地普遍种植。
+
+</div>
+<div id="Q15"style="display: none;">花卉名，常记载于佛教典籍，梵文为ma^nda^rava；manda^raka，学名白花石蒜（注意：曼陀罗华不是曼陀罗，也不是曼珠沙华），又称龙爪花、老鸦蒜、石蒜、无义草、蒜头草、幽灵花、地狱花、舍子花、生死之花、山乌毒、平地一声雷、天堂之花。红花石蒜（彼岸花即曼珠沙华）的另一个同科同属植物。</div>
+<div id="Q16"style="display: none;">石竹花，别名：中国石竹，洛阳石竹，石菊，绣竹，香石竹，拉丁文名：石竹花（Dianthus chinensis）是石竹科、石竹属的多年生草本植物，中国传统名花之一，原产我国，是我国传统名花之一。石竹花种类较多，花色鲜艳，花期也长，能从春天开到秋天，温室盆栽可以花开四季。 石竹花的主要品种有锦团石竹、矮石竹和羽瓣石竹。
+现多作为观赏植物由人工栽培。</div>
+		
+		</div>	</body>
+</html>

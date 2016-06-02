@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>室内植物</title>
+		<style type="text/css">
+		
+			*{margin: 0;padding: 0;}
+			#div1 h1{font-size: 45px;
+			text-align: center;
+			font-family: "lucida console";
+			position: absolute;top: 120px;left: 600px;
+			color: black;} 
+			#div1{ background:url(img1/00.jpg);background-repeat:no-repeat ; 
+     width:480px;height:220px;line-heiht:200px top：0px auto;
+     text-align:center;margin: 40px auto;}
+			#div2 ul li{ float: left; width: 293px;height:220px;list-style: none;}
+			#div2{
+				width: 1172px;height: 220px;margin: 100px auto;position: relative;
+				background: white;overflow: hidden;top: 350px;
+			}
+			#div2 ul{position: absolute; top: 0;left: 0; }
+			
+			#div3{background-image: url(img1/04.jpg) ;background-repeat:  no-repeat;
+			width: 500px;height: 375px;margin: 10px auto;position: absolute;top:250px;}
+			#div3 a{position: relative;width: 1000px;height: 60px;display: block;left: 250px;top: 60px;}
+			#div4{ 
+					position:fixed; 
+					top:0; 
+					left:0; 
+					bottom:0; 
+					right:0; 
+					z-index:-1; 
+					} 
+					#div4 img{width: 100%;
+					height: 100%;}
+					#div5{
+					width: 400px;
+					height: 390px;
+					right: 0px;
+					position: absolute;
+					background-image: url(img1/55.jpg);
+					background-repeat: no-repeat;
+					margin: 100px;
+					top: 200px;
+					display:none;
+					z-index: 10;}
+					#div6{
+						width: 800px;height:400px;
+						position: absolute;
+						right: 80px;
+						
+						top: 220px;
+						margin: 30px auto;
+					}
+					#div6 li{ list-style: none;
+					float: left;margin: 10px auto;
+					width: 240px;height: 200px;}
+					#div6 ul{position: absolute; top: 0;left: 0;}
+					#ss1 img:hover{
+						transform: scale(1.2);
+					}
+					#ss2 img:hover{
+						transform: scale(1.2);
+					}
+					#ss3 img:hover{
+						transform: scale(1.2);
+					}
+		</style>
+		<script>
+			window.onload=function()
+			{    var oDv5=document.getElementById("div5");
+				var oDv1=document.getElementById("div2");
+				var aUL=document.getElementsByTagName("ul")[0];
+				var aLi=document.getElementsByTagName("li");
+				var aimg=document.getElementsByTagName("img");
+				var timer=null;
+				aUL.innerHTML=aUL.innerHTML+aUL.innerHTML;
+				aUL.style.width=aLi[0].offsetWidth*aLi.length+"px";
+				function move()
+				{if(aUL.offsetLeft<-aUL.offsetWidth/2)
+					{
+						aUL.style.left="0px";
+					}
+					aUL.style.left=aUL.offsetLeft-2+"px";
+				}
+				timer=setInterval(move,30);
+				
+	/*			   for(var i=0;i<aimg.length;i++){
+				   	aimg[i].onmouseover=function(){
+						clearInterval(timer);
+						oDv5.style.display="block";
+					}
+					
+				};
+				 for(var i=0;i<aimg.length;i++){
+				   	aimg[i].onmouseout=function(){
+						timer=setInterval(move,30);
+						oDv5.style.display="none";
+					}
+					
+				};*/
+				/*for(var i=0;){}*/
+			oDv1.onmouseover=function()
+			{clearInterval(timer);
+			oDv5.style.display="block";
+			 }
+			oDv1.onmouseout=function()
+			{timer=setInterval(move,30);
+				
+			oDv5.style.display="none";}
+			/*aLi[0].onmouseover=function()
+			{
+				clearInterval(timer);
+				oDv5.style.display="block";
+				oDv5.innerHTML="333";}
+			aLi[0].onmouseout=function()
+			{timer=setInterval(move,30);
+				
+			oDv5.style.display="none";}
+			aLi[1].onmouseover=function()
+			{
+				clearInterval(timer);
+				oDv5.style.display="block";
+				oDv5.innerHTML="333";}
+			aLi[1].onmouseout=function()
+			{timer=setInterval(move,30);
+				
+			oDv5.style.display="none";}
+			aLi[2].onmouseover=function()
+			{
+				clearInterval(timer);
+				oDv5.style.display="block";
+				oDv5.innerHTML="333";}
+			aLi[2].onmouseout=function()
+			{timer=setInterval(move,30);
+				
+			oDv5.style.display="none";}
+			aLi[3].onmouseover=function()
+			{
+				clearInterval(timer);
+				oDv5.style.display="block";
+				oDv5.innerHTML="333";}
+			aLi[3].onmouseout=function()
+			{timer=setInterval(move,30);
+				
+			oDv5.style.display="none";}*/
+			function show()
+			{
+				var img1=document.getElementById("ss1");
+				img1.onmouseover=function()
+				{
+					img1.style.src="url(img1/44.jpg)";
+				}
+			}
+			
+			
+			
+			}
+		</script>
+	
+	</head>
+	<body >
+	<div id="div4"><img src="img1/07.jpg"/></div>
+		<div id="div5"></div>
+		<div id="div1">
+			<h1>室内植物</h1>
+		</div>
+		<div id="div3">
+	
+			<a href="http://image.baidu.com/search/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=&sf=1&fmq=1461465841070_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E5%AE%A4%E5%86%85%E6%A4%8D%E7%89%A9"  style="padding-left:30px; padding-right:30px;" title="植物之家首页">室内植物图片</a>
+			<a href="http://jingyan.baidu.com/article/922554468b6b65851648f4c8.html"  title="植物大全">室内植物大全</a> 
+			
+			<a href="http://www.360doc.com/content/13/0724/09/8826950_302117995.shtml"  title="植物趣闻" >植物趣闻</a> 
+			
+			<a href="http://www.360doc.com/content/13/0103/21/5846940_258039425.shtml"  title="养花知识" >养花知识</a>  
+			<a href="http://bbs.yuhuagu.com/thread-21517-1-1.html"  title="季节与养花" >季节与养花</a>  
+		</div>
+		
+		<div id="div2">
+			<ul id="ul">
+				<li id="li">
+					<img src="img1/001.jpg" />
+				</li>
+				<li><img src="img1/004.jpg" /></li>
+				<li><img src="img1/008.jpg" /></li>
+				<li><img src="img1/006.jpg" /></li>
+				
+			</ul>
+		</div>
+		<div id="div6">
+		<ul id="ull">
+			<li id="ss1"><img src="img1/044.jpg" /></li>
+			<li id="ss2"><img src="img1/009.jpg" /></li>
+			<li id="ss3" ><img src="img1/1000.jpg" /></li>
+			</ul>
+		
+		</div>
+	</body>
+</html>

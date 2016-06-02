@@ -1,0 +1,219 @@
+<html>
+<title>青岛世园会</title>
+<head>
+<meta charset="utf-8" />
+<style type="text/css">
+#all{margin-left:80px ;height: 1000px;}
+#top{width: 1200px;height: 220px;}
+	#center{width:500px ;height: 220px;float: left;text-align: center; font-size: 40px; color:yellow; }
+	#div1{width:220px; height:180px;float: left;}
+    #div3{width:464px ;height:220px;float: right;}
+    body,ul,li,div{padding: 0px;margin: 0px;}
+    *{margin: 0;padding: 0px;}
+    img{margin: 10px;}
+	li{
+		float: left;
+		width: 300px;
+		height: 40px;
+		line-height: 30px;
+		text-align: center;
+		border: 1px solid #bbb;
+		background-color:#00DB00 ;
+		box-sizing: border-box;
+		cursor: pointer;
+		list-style: none;
+		font-size: 20px;
+	}
+	.select{
+		color: red;
+		background-color: yellow;
+		font-weight: bold;
+		border-bottom: none;
+		cursor: default;
+	}
+	#divcontainer div{
+		border: 1px solid #bbb;
+		width: 1200px;
+		height: 700px;
+		display: none;
+		box-sizing: border-box;
+		padding: 20px;
+	}
+	#divcontainer .show{display: block;background-color: yellow;border-top: none;padding: 20px;}
+	#bottom{width: 1200px;height: 180px;/*margin:100px auto;*/position: relative;/*background: red;*/overflow:hidden ;}
+	#bottom ul{position: absolute;left:0;top:0;}
+	#bottom ul li {float:left;width: 250px;height:300px;list-style: none;}
+	#vi{width:150px ;height: 240px;background:url(新建文件夹/吉祥物.jpg);position: absolute;right: 0px;bottom: 0px;}
+	#aa{padding: 50px;text-align: center;}	
+	#bb{padding: 120px;}
+	#aa td{width: 350px;height: 300px;}
+	#ig{background-color: #00DB00;}
+	#ig img{width:20%;height:40%;margin-left: 20px;}
+	#ig img:nth-child(1){-webkit-transform:rotate(-5deg);-ms-transform:rotate(-5deg);transform:rotate(-5deg);}
+	#ig img:nth-child(2){-webkit-transform:rotate(4deg);-ms-transform:rotate(4deg);transform:rotate(4deg);}
+	#ig img:nth-child(3){-webkit-transform:rotate(-6deg);-ms-transform:rotate(-6deg);transform:rotate(-6deg);}
+	#ig img:nth-child(4){-webkit-transform:rotate(-4deg);-ms-transform:rotate(3deg);transform:rotate(5deg);}
+	#ig img:nth-child(4){-webkit-transform:rotate(-4deg);-ms-transform:rotate(3deg);transform:rotate(5deg);}
+	#ig img:nth-child(5){-webkit-transform:rotate(-10deg);-ms-transform:rotate(3deg);transform:rotate(5deg);}
+	#ig img:nth-child(6){-webkit-transform:rotate(4deg);-ms-transform:rotate(5deg);transform:rotate(3deg);}
+	#ig img:nth-child(7){ -webkit-transform:rotate(-4deg);-ms-transform:rotate(5deg);transform:rotate(3deg);}
+	#ig img:nth-child(8){-webkit-transform:rotate(4deg);-ms-transform:rotate(5deg);transform:rotate(3deg);}
+    #ig img:hover{
+		-webkit-transform:rotate(0deg) scale(1.5);
+		-ms-transform:rotate(0deg) scale(1.5);
+		transform:rotate(0deg) scale(1.5);
+		-webkit-transition:all 0.5s ease-in;
+		transition:all 0.5s ease-in;
+		z-index: 2;}
+</style>
+<script >
+	window.onload=function(){
+		var lst=document.getElementsByTagName('li');
+		var divs=document.getElementById('divcontainer').getElementsByTagName('div');
+		for(var i=0;i<lst.length;i++){
+			lst[i].onclick=function(){
+				for(var i=0;i<lst.length;i++){
+					if(this==lst[i]){
+						lst[i].className='select';
+						divs[i].className='show';
+					}else{
+						lst[i].className='';
+						divs[i].className='';
+					}
+				}	
+			}
+		}
+			var speed=2;
+			var oDiv=document.getElementById('bottom');
+			var oUL=oDiv.getElementsByTagName('ul')[0];
+		    var ali=oUL.getElementsByTagName('li');
+			oUL.innerHTML=oUL.innerHTML+oUL.innerHTML;
+			oUL.style.width=ali[0].offsetWidth*ali.length+'px';
+			move=function(){
+					if(oUL.offsetLeft<-oUL.offsetWidth/2){
+						oUL.style.left='0';
+					}
+					if(oUL.offsetLeft>0){
+					oUL.style.left=-oUL.offsetWidth/2+'px';
+				}
+			oUL.style.left=oUL.offsetLeft+speed+'px';
+			}
+			 var timer=setInterval(move,30);
+			oDiv.onmouseover=function(){
+				clearInterval(timer);
+			}
+			oDiv.onmouseout=function(){
+				timer=setInterval(move,30);
+			};
+	}
+   	window.onscroll=function(){
+				var oDiv=document.getElementById("vi");
+				var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+				startmove(parseInt((document.documentElement.clientHeight-oDiv.offsetHeight)/2+scrollTop));
+			}
+			var timer=null;
+			function startmove(itarget){
+				var oDiv=document.getElementById("vi");
+				clearInterval(timer);
+				timer=setInterval(function(){
+					var speed1=(itarget-oDiv.offsetTop)/10;
+					speed1=speed1>0?Math.ceil(speed1):Math.floor(speed1);
+			    if(oDiv.offsetTop==itarget){
+			    	clearInterval(timer);
+			    }
+			    else{
+			    	oDiv.style.top=oDiv.offsetTop+speed1+'px';
+			    }
+				},30);
+			}
+</script>
+</head>
+<body  style="height: 900px;" bgcolor="#00DB00">
+	<div id="all">
+		<div id="top">
+			<div id="div1"><img src="新建文件夹/世园会.jpg" /></div>
+			<div id="center" >青岛世园会</div>
+			<div id="div3"><img src="新建文件夹/世园会2.jpg"/></div>
+		</div>
+		<div id="div2">
+			<ul>
+				<li class="select">世园会简介</li>
+				<li>世园会景观</li>
+				<li>世园会场外</li>
+				<li>世园会场内</li>
+			</ul>
+		<div id="divcontainer">
+				<div class="show">
+					<font style="text-align: center;">&nbsp;&nbsp;&nbsp;世界园艺博览会是由国际园艺生产者协会批准举办的专业性国际博览会，被称为园艺文化和园林科学的“奥林匹克”。
+					  2009年9月15日，在西班牙萨拉哥萨举行的国际园艺生产者协会第61届年会上，青岛市获得2014年世界园艺博览会的举办权。2011年8月31日，经国务院同意，
+					       商务部批复，2014年世界园艺博览会由国家林业局、山东省政府、中国贸促会、中国花卉协会共同主办，青岛市政府承办。
+					       青岛世园会选址在李沧区百果山森林公园，定于2014年4月25日至10月25日举行，会期184天。主题为“让生活走进自然”（From the earth，for the Earth），
+					       旨在倡导人与自然和谐相处、绿色生态低碳的发展理念。</br>会徽为“七彩花艺”，吉祥物为“海精灵——青青”，充分体现了齐鲁文化、海洋文化、民俗文化以及园林艺术有机融合的深厚底蕴，
+					       彰显了青岛山海城浑然一体的城市特征。青岛世园会园区总面积241公顷，分为164公顷的主题区和77公顷的体验区，并在周边建设55公顷的世园村作为后勤保障基地。总体规划创意为“天女散花、
+					       天水地池、七彩飘带、四季永驻”，源于浪漫的中国古典神话故事“七仙女下凡”。
+					       园区基本空间结构为“两轴十二园”。“两轴”为南北向的“鲜花大道轴”和东西向的“林荫大道轴”，“十二园”包括主题区的中华园、花艺园、草纲园、童梦园、科学园、绿业园、国际园七个园和体验区的茶香园、农艺园、花卉园、百花园、山地园五个园，每个园都有寓意不同、相互补充的主题。
+					      园区规划建设主题馆、植物馆、园艺文化中心等七个重要建筑，总建筑面积约10.6万平方米。其中，主题馆形象取自青岛市花——月季，主要功能包括主题演绎、花卉竞赛、游客服务；植物馆形象取自叶片，设有温带植物、海洋植物和竹藤三个展区。</br>
+					     2014年世园会是继2008年奥帆赛残奥帆赛之后，青岛承办的持续时间最长、参与人数最多、涉及面最广的一项国际性活动，责任重大、机遇难得。我们始终坚持“世界一流、中国时尚、山东特色、青岛品牌”的目标定位，始终坚持生态环保的衡量标准，始终坚持“文化创意、科技创新、自然创造”的发展理念，始终坚持开放、创新、节俭、廉洁、全民办世园的基本原则，始终坚持立足当前办世园、
+					       着眼长远建新区的战略思路，高起点策划、高标准规划、高质量建设、高水平管理、高效能利用，突出展现青岛世园会的山地特色、海洋特色和文化特色，着力打造人文世园、科技世园、低碳世园。 </font>
+				</div>
+			<div id="aa">
+				<table border="2px" cellpadding="0px"cellspacing="0px">
+					<tr>
+						<td><img src="新建文件夹/新加坡.jpg"/></br><p style="text-align: center;">新加坡</p></td>
+						<td><img src="新建文件夹/西班牙.jpg"/></br><p style="text-align: center;">西班牙</p></td>
+						<td><img src="新建文件夹/泰国.jpg"/></br><p style="text-align: center;">泰国</p></td>
+					</tr>
+					<tr>
+						<td><img src="新建文件夹/江南.jpg"/></br><p style="text-align: center;">香港</p></td>
+						<td><img src="新建文件夹/日本.jpg"/></br><p style="text-align: center;">日本</p></td>
+						<td><img src="新建文件夹/新西兰.jpg"/></br><p style="text-align: center;">新西兰</p></td>
+					</tr>
+				</table>
+			</div>
+			<div id="bb">
+				<table border="0px" cellpadding="0px"cellspacing="0px">
+					<tr>
+						<td><img src="新建文件夹/10.jpg"/></br><p style="text-align: center;">睡莲花开</p></td>
+						<td><img src="新建文件夹/12.jpg"/></br><p style="text-align: center;">待到花开烂漫时</p></td>
+						<td><img src="新建文件夹/6.jpg"/></br><p style="text-align: center;">色彩斑斓</p></td>
+						<td><img src="新建文件夹/7.jpg"/></br><p style="text-align: center;">出淤泥而不染</p></td>
+					</tr>
+					<tr>
+						<td><img src="新建文件夹/14.jpg"/></br><p style="text-align: center;">阳光 花海 人间</p></td>
+						<td><img src="新建文件夹/18.jpg"/></br><p style="text-align: center;">妩媚世园</p></td>
+						<td><img src="新建文件夹/20.jpg"/></br><p style="text-align: center;"> 国色天香</p></td>
+						<td><img src="新建文件夹/15.jpg"/></br><p style="text-align: center;">沐浴阳光</p></td>
+					</tr>
+					<tr>
+						<td><img src="新建文件夹/阳光 花海 人间.jpg"/></br><p style="text-align: center;">最美世园</p></td>
+						<td><img src="新建文件夹/一路繁花相送.jpg"/></br><p style="text-align: center;">妩媚世园</p></td>
+						<td><img src="新建文件夹/8.jpg"/></br><p style="text-align: center;">花海</p></td>
+						<td><img src="新建文件夹/待到花开烂漫时.jpg"/></br><p style="text-align: center;">最美世园</p></td>
+					</tr>	
+				</table>
+			</div>
+			<div id="ig">
+				<img src="新建文件夹/1461633770357.jpeg" />
+				<img src="新建文件夹/1461633775394.jpeg" />
+				<img src="新建文件夹/1461633792998.jpeg" />
+				<img src="新建文件夹/1461633796545.jpeg" />
+				<img src="新建文件夹/1461633800576.jpeg" />
+				<img src="新建文件夹/1461633808405.jpeg" />
+				<img src="新建文件夹/1461633821045.jpeg" />
+				<img src="新建文件夹/1461633832011.jpeg" />
+			</div>
+		</div>
+	</div>
+	<div id="bottom">
+			<ul>
+				<li><img src="新建文件夹/11.jpg" /> </li>
+				<li><img src="新建文件夹/QQ图片20160426102404.png" /> </li>
+				<li><img src="新建文件夹/QQ截图20160426102526.jpg" /> </li>
+				<li><img src="新建文件夹/QQ截图20160426102635.jpg" /> </li>
+				<li><img src="新建文件夹/QQ截图20160426102655.jpg" /> </li>
+			</ul>
+	</div>
+	</div>
+
+</body>
+</html>
